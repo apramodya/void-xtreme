@@ -6,7 +6,7 @@ def bfs(graph, start, end):
     q = Queue()
 
     start_vertex = graph.get_vertex(start)
-    start_vertex.color = 'gray'
+    start_vertex.color = 'GRAY'
     q.enqueue([start])
 
     while not q.is_empty():
@@ -17,8 +17,8 @@ def bfs(graph, start, end):
         else:
             for connection in last_vertex.connections:
                 connected_vertex = graph.get_vertex(connection)
-                if connected_vertex.color == 'white':
-                    connected_vertex.color = 'gray'
+                if connected_vertex.color == 'WHITE':
+                    connected_vertex.color = 'GRAY'
                     new_path = path[::]
                     new_path.append(connected_vertex.value)
                     q.enqueue(new_path)
@@ -32,27 +32,19 @@ def bf_traverse(graph, start):
 
     start_vertex = graph.get_vertex(start)
     print start_vertex.value
-    start_vertex.color = 'gray'
+    start_vertex.color = 'GRAY'
     q.enqueue(start_vertex)
 
     while not q.is_empty():
         current_vertex = q.dequeue()
         for connection in current_vertex.connections:
             connected_vertex = graph.get_vertex(connection)
-            if connected_vertex.color == 'white':
+            if connected_vertex.color == 'WHITE':
                 print connected_vertex.value
-                connected_vertex.color = 'gray'
+                connected_vertex.color = 'GRAY'
                 q.enqueue(connected_vertex)
 
     graph.reset_colors()
-
-
-
-
-
-
-
-
 
 
 

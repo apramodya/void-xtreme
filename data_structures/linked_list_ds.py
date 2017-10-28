@@ -70,3 +70,10 @@ class LinkedList:
 
                 self.size -= 1
             current_node = current_node.next
+
+    def show(self):
+        p = self.head
+        while p is not None:
+            print p.data
+            p = p.next
+            
